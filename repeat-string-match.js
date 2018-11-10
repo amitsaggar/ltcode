@@ -17,7 +17,6 @@ var repeatedStringMatch = function(A, B) {
         if (str.indexOf(B) !== -1){
             return i;
         }
-    console.log(str + '--' + str.length);
     }
     while (str.length <= B.length);
     if (A.repeat(++i).indexOf(B) !== -1){
