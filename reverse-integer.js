@@ -20,7 +20,7 @@ Assume we are dealing with an environment which could only store integers within
 var n =  1563847412;
 
 var reverse = function(x) {
-    result = +(String(Math.abs(n)).split('').reverse().join(''));
+    result = +(String(Math.abs(x)).split('').reverse().join(''));
     if (result > 0x7FFFFFFF) {
         return 0;
     }
