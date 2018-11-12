@@ -1,7 +1,7 @@
-aws s3 mb s3://bucket-name
-aws s3 rb s3://bucket-name
+aws s3 mb s3://bucket-amit
+aws s3 rb s3://bucket-amit
 aws s3 ls
-aws s3 cp C:\Users\test\Desktop\test.png s3://amit - S3 bucket copy file
+aws s3 cp /Users/asaggar/Documents/wwwroot/ltcode/test.png s3://bucket-amit - S3 bucket copy file
 aws ec2 describe-instances --filters "Name=instance-type,Values=t2.micro"
 aws ec2 create-key-pair --key-name mykeypair
 aws ec2 terminate-instances --instance-ids i-5203422c
