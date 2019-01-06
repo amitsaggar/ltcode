@@ -16,6 +16,7 @@ var letterCombinations = function(digits) {
       const newCombinations = []
      
       for (let letter of letters) {
+        //   console.log(combinations);
           for (let combination of combinations) {
               newCombinations.push(combination + letter)
           }
@@ -26,3 +27,5 @@ var letterCombinations = function(digits) {
 
   return combinations
 };
+
+console.log( letterCombinations("23") );
