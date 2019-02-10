@@ -1,0 +1,6 @@
+
+functional component vs class component: The primary reason to choose class components over functional components is that they can have state .
+Easy Way to Understand React's Component Lifecycle Method: 
+https://github.com/jordanhudgens/ReactComponentLifecycleDeepDive/blob/master/src/components/workflow.js
+
+React Component Lifecycle Deep Dive - https://github.com/jordanhudgens/ReactComponentLifecycleDeepDive

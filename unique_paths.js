@@ -7,6 +7,7 @@ var uniquePaths = function(x, y) {
   let T = [];
   for(i = 1 ; i<=x; i++) {
     T[i] = [];
+    console.log(T);
     for(j = 1 ; j<=y; j++) {
       if (i == 1 || j==1)
       {
@@ -20,5 +21,5 @@ var uniquePaths = function(x, y) {
   return T[x][y];
 }
 
-console.log(uniquePaths(7,3));
+console.log(uniquePaths(3,2));
 

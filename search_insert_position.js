@@ -30,6 +30,7 @@ var searchInsert = function(nums, target) {
   let end = nums.length
   let half = Math.floor(end/2)
 
+  // while (end - start > 1) {
   while (end - start > 1) {
     if (nums[half] === target) return half
     if (nums[half] > target) {

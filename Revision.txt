@@ -1,0 +1,157 @@
+⁃Palindrome
+	⁃Longest Palindromic Subsequence
+   Formula
+   If(input[i] == input[j]){
+     T[i][j] = 2 + T[i+1][j-1]
+   } else {
+     T[i][j] = max(T[i+1][j], T[i][j-1])
+   }
+   Code - https://raw.githubusercontent.com/mission-peace/interview/master/src/com/interview/dynamic/LongestPalindromicSubsequence.java
+
+	⁃Longest Palindromic Substring
+  max_len=1; palindromeBeginsAt=0, n = s.length();
+  if (s.charAt(i) == s.charAt(j) //1. The first and last characters should match 
+    && palindrome[i+1][j-1]) //2. Rest of the substring should be a palindrome
+  {
+    palindrome[i][j] = true; 
+    palindromeBeginsAt = i;
+    max_len = curr_len;
+  }
+  Code: https://github.com/IDeserve/learn/blob/master/LongestPalindromicSubstring.java
+  -Palindromic Substrings
+    Expand Around Center: It has a time complexity of O(n2) and a space complexity of O(n). If you want to first try solving the problem on your own, take your time and come back if it seems impossible to solve.
+    const longestPalindrome = s => {
+      if(!s || s.length <= 1) {
+        return s
+      }
+      let longest = s.substring(0, 1)
+      for(let i = 0; i < s.length; i++) {
+        let temp = expand(s, i, i)
+        if(temp.length > longest.length) {
+          longest = temp
+        }
+        temp = expand(s, i, i + 1)
+        if(temp.length > longest.length) {
+          longest = temp
+        }
+      }
+      return longest
+    }
+
+    const expand = (s, begin, end) => {
+      while(begin >= 0 && end <= s.length - 1 && s[begin] === s[end]) {
+        begin--
+        end++
+      }
+      return s.substring(begin + 1, end)
+    }
+    Manacher's Algo - https://www.youtube.com/watch?v=nbTSfrEfo6M&t=801s
+    Pretty hard.
+
+  -Palindrome Partitioning  
+  If isPalindrome(i,j)
+    T[i][j] = 0
+  else
+    T[i][j] = 1 + min(T[i][k], T[k+1],j)
+  Print program DP - https://github.com/mission-peace/interview/blob/master/src/com/interview/dynamic/PalindromePartition.java
+
+	⁃Min actions to become palindrome
+  var Solution = function(s) {
+    function isPalindromeRange(s, i, j) {
+        for (k = i; k <= i + (j - i) / 2; k++) {
+            if (s.charAt(k) != s.charAt(j - k + i)) return false;
+        }
+        return true;
+    }
+    for (i = 0; i < s.length() / 2; i++) {
+        if (s.charAt(i) != s.charAt(s.length() - 1 - i)) {
+            int j = s.length() - 1 - i;
+            return (isPalindromeRange(s, i+1, j) ||
+                    isPalindromeRange(s, i, j-1));
+        }
+    }
+    return true;
+  }
+  -Valid Palindrome
+  Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.
+  var isPalindrome = function(s) {
+      var strippedString = s.replace(/\W/g, '');
+      var reversedString = strippedString.split('').reverse().join('');
+      
+      return strippedString.toLowerCase() == reversedString.toLowerCase();
+  };  
+  -Palindrome Linked List
+  Given a singly linked list, determine if it is a palindrome.
+
+  Example 1:
+
+  Input: 1->2
+  Output: false
+
+  def isPalindrome(self, head):
+    rev = None
+    fast = head
+    while fast and fast.next:
+        fast = fast.next.next
+        rev, rev.next, head = head, rev, head.next
+    tail = head.next if fast else head
+    isPali = True
+    while rev:
+        isPali = isPali and rev.val == tail.val
+        head, head.next, rev = rev, head, rev.next
+        tail = tail.next
+    return isPali
+
+  -Palindrome Number
+
+Callbacks, Promises, Async Await: 
+  https://www.youtube.com/watch?v=PoRJizFvM7s
+  https://www.youtube.com/watch?v=yo3MJPcVJc8
+  https://medium.freecodecamp.org/javascript-from-callbacks-to-async-await-1cc090ddad99
+  
+Google Cloud Platform
+  https://www.youtube.com/channel/UCJS9pqu9BzkAMNTmzNMNhvg
+
+Google 
+  Interview coaching from Googlers! 
+  http://blog.gainlo.co/index.php/2016/06/29/build-web-crawler/
+  https://github.com/jwasham/coding-interview-university#data-structures
+
+Gayle lackman:
+  https://www.hiredintech.com/courses System Design, Soft Skills, Algorithm Design
+
+
+Extra's
+
+https://orrsella.com/2016/05/14/preparing-for-a-facebook-google-software-engineer-interview/
+https://orrsella.gitbooks.io/soft-eng-interview-prep/content/topics/bit-operators.html
+https://orrsella.gitbooks.io/soft-eng-interview-prep/content/topics/data-structures.html
+
+Good -Coding Interview University -  https://github.com/jwasham/coding-interview-university#why-use-it
+How Google works - Eric Schmidt, - https://docs.google.com/document/d/1nj-M-caLlOXbkwZW9FIz7guOr-jr2YX5Jn3c4o_y-eM/preview
+System design https://www.educative.io/collection/page/5668639101419520/5649050225344512/5681717746597888
+Cracking the Coding Interview 6th Ed. JavaScript Solutions : https://github.com/careercup/CtCI-6th-Edition-JavaScript
+Similar as above -Guy has solved mostly ctci questions - https://www.youtube.com/channel/UC2cFcY8dwpTmm_Z1MkRTE0Q
+JavaScript — from callbacks to async/await - https://medium.freecodecamp.org/javascript-from-callbacks-to-async-await-1cc090ddad99
+HiredTech - https://www.hiredintech.com/classrooms/algorithm-design/lesson/80
+Topcoder analysis - https://www.topcoder.com/community/competitive-programming/tutorials/how-to-find-a-solution/#bfs
+The Common Constraints Handout - https://www.hiredintech.com/the-common-constraints-handout.pdf
+The Algorithm Design Canvas - https://www.hiredintech.com/classrooms/algorithm-design/lesson/81
+The Common Complexities Handout - https://www.hiredintech.com/the-common-comlexities-handout.pdf
+React - https://github.com/Pau1fitz/react-interview
+Good - Preparing for a Technical Interview: Algorithms, Data Structures, and Computer Science - http://www.primaryobjects.com/2017/03/28/preparing-for-a-technical-interview-algorithms-data-structures-and-computer-science/
+Loop control statements https://python-textbok.readthedocs.io/en/1.0/Loop_Control_Statements.html
+Finding median in linear time - https://www.youtube.com/watch?v=Ilwg1zmwdBo
+Code in the end - Programming Interview Question: Longest Palindromic Substring: https://www.youtube.com/watch?v=obBdxeCx_Qs
+Maximum product subarray - https://www.youtube.com/watch?v=vtJvbRlHqTA
+Top Interview Questions #5 - Palindrome Pairs and the Trie https://fizzbuzzed.com/top-interview-questions-5/
+
+ReactJs - 
+javascript prototype inheritance explained https://www.youtube.com/watch?v=uIlj6_z_wL8
+JS Transformations: https://www.youtube.com/watch?v=o9sgjuh-CBM&list=PLRqwX-V7Uu6ZmA-d3D0iFIvgrB5_7kB8H
+Great - Easy Way to Understand React's Component Lifecycle Methods - https://www.youtube.com/watch?v=UPv-3SYRdZk
+
+You-Tuber's - 
+Michael Muinos - Tech Interviews & More https://www.youtube.com/channel/UC6B6UMcP7tdlE6NxkAha3tA
+Top 10 JavaScript Interview Questions  - https://www.youtube.com/watch?v=yo3MJPcVJc8
+System design : Design Autocomplete or Typeahead Suggestions for Google search - https://www.youtube.com/watch?v=us0qySiUsGU

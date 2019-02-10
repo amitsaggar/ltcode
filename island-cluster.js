@@ -25,7 +25,7 @@ lake.reduce((rows, row) =>
 const numIslands = (lake) => {
     let islandCount = 0;
     const visited = lake.reduce((rows, row) => rows.push(row.map((elem) => elem != true)) && rows, []);
-    console.log(visited);
+    // console.log(visited[0]);
     const traverseIsland = traverseIslandClosure(lake, visited);
     visited.forEach((row, i) => {
     //   console.log(row + ' - ' + i );
