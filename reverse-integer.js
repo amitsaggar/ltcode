@@ -26,4 +26,41 @@ var reverse = function(x) {
     }
     return x > 0 ? result : -result;
 };
-console.log(reverse(n));
+// console.log(reverse(n));
+
+var reverseString = function(str) {
+    let strArr = str.split("");
+    let start = 0
+    let end = strArr.length-1;
+    while(start < end) {
+        let temp = strArr[start];
+        strArr[start] = strArr[end];
+        strArr[end] = temp;
+        start++;
+        end--;
+    }
+    return strArr.join("");
+};
+
+console.log(reverseString("amit is my name"));
+
+
+var secondLargestNum = function(nums) {
+    let largest = Number.NEGATIVE_INFINITY;
+    let second = Number.NEGATIVE_INFINITY;
+    let temp = null;
+    
+    for(i=0;i<nums.length;i++) {
+        if (nums[i] > largest)  {
+            temp = largest;
+            largest = nums[i];
+            second = temp;
+        } else if(nums[i] > second) {
+                temp = second;
+                second = nums[i];               
+        }
+    }
+    return second;
+};
+
+console.log( secondLargestNum([1,2,3,9,8]) );

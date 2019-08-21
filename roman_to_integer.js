@@ -42,7 +42,7 @@ Output: 1994
 Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
 */
 
-const x = "LVIII";
+const x = "IV";
 var romanToInt = function(s) {
   const LOOKUP = {
       'I': 1,
@@ -55,9 +55,10 @@ var romanToInt = function(s) {
   };
   var sum = 0;
   const roman_array = String(s).split('');
-
+  // console.log( roman_array );
   roman_array.forEach((val, index) => {
     idx = index + 1;
+    // console.log( val + ' - ' + roman_array[idx]);
     if (LOOKUP[val] < LOOKUP[roman_array[idx]])
       sum -= LOOKUP[val];
     else
