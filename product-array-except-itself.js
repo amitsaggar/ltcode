@@ -19,43 +19,26 @@ var productExceptSelf = function(nums) {
 };
 */
 
-// [1,2,3,4]
-// res = [1, 1, 2, 6, 24];
+// Input:  [1,2,3,4]
+// Output: [24,12,8,6]
+var productExceptSelf = function(list) {
+  // I want to make result array first left.
+  // Then update same result with right side of elements.
+  let result = [];
+  let left = 1;
 
+  for(let i = 0; i < list.length; i++) {
+    result[i] = left;
+    left *= list[i];
+  }
 
-// result[i] = result[i-1] * num[i-1];
-//           = 1
-//           = 1*2 = 2
-//           = 2*3 = 6
-//           = 6*4 = 24
+  let right = 1;
+  for(let i = list.length - 1; i >= 0; i--) {
+    result[i] *= right;
+    right *= list[i];
+  }
 
-let nums = [1,2,3,4];
-let result = new Array(nums.length);
-let n = nums.length;
-result[0] = 1;
+  return result;
+};
 
-for(let i=1; i<n; i++) {
-    result[i] = result[i-1] * nums[i-1];
-}
-console.log(result);
-
-result = [1, 1, 2, 6];
-                   6*4
-                   res = 4;
-                2*4
-                res = 8
-              2*8
-                res = 16
-          
-         [1, 2, 3, 4]
-          ----
-         [24,12,8, 6]
-
-[1,2,3,4]
-
-[1,1,2,6]
-
-r = 12*2;
-[24, 12, 8, 6]
-
-
+console.log(productExceptSelf([1,2,3,4]));
