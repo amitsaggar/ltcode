@@ -46,9 +46,9 @@ var fillMatrix = function(n) {
   return matrix;
 };
 
-fillMatrix(2).forEach((ele) => console.log(ele));
-fillMatrix(3).forEach((ele) => console.log(ele));
-fillMatrix(4).forEach((ele) => console.log(ele));
+// fillMatrix(2).forEach((ele) => console.log(ele));
+// fillMatrix(3).forEach((ele) => console.log(ele));
+// fillMatrix(4).forEach((ele) => console.log(ele));
 
 /**
  * 
@@ -76,6 +76,7 @@ var fillMatrixSimplified = function(n) {
           if (count%2) x -= 1; 
           else x += 1;
           matrix[y][x] = num;
+          console.log(y,x);
           num++;
       }
 
@@ -83,6 +84,7 @@ var fillMatrixSimplified = function(n) {
           if (count%2) y -= 1; 
           else y += 1;
           matrix[y][x] = num;
+          console.log(y,x);          
           num++;
       }
 
@@ -94,5 +96,5 @@ var fillMatrixSimplified = function(n) {
 };
 
 // fillMatrixSimplified(2).forEach((ele) => console.log(ele));
-// fillMatrixSimplified(3).forEach((ele) => console.log(ele));
+fillMatrixSimplified(3).forEach((ele) => console.log(ele));
 // fillMatrixSimplified(4).forEach((ele) => console.log(ele));

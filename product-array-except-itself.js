@@ -42,3 +42,4 @@ var productExceptSelf = function(list) {
 };
 
 console.log(productExceptSelf([1,2,3,4]));
+console.log(productExceptSelf([1,2,3,0]));

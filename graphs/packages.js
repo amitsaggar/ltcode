@@ -142,5 +142,5 @@ function processData(input) {
 } 
 
 let k = "6\nDEPEND A B\nDEPEND B C\nINSTALL A\nREMOVE A\nLIST\nEND\n";
-k = "1\nEND\n";
+// k = "1\nEND\n";
 processData(k);
